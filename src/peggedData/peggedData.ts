@@ -4895,16 +4895,16 @@ export default [
     symbol: "AUDD",
     url: "https://www.audd.digital/",
     description:
-      "AUDD is an Australian Dollar Stablecoin 1:1 backed by Australian Dollars. It is currently available on Ethereum, Stellar, XRP Ledger, and Solana",
+      "AUDD is an Australian dollar stablecoin issued by AUDC Pty Ltd under AFSL 700123. It is backed 1:1 by Australian dollars held in cash on trust for AUDD holders, and is redeemable at par with the issuer, on demand. AUDD is issued natively on Ethereum, Stellar, XRP Ledger, Solana, Hedera, Base, XDC, Redbelly and Arc",
     mintRedeemDescription:
-      "AUDD is collateralised on a 1:1 basis by Australia's sovereign currency by way of cash in bank accounts or government-backed instruments such as Treasury Bills and Notes",
+      "AUDD is collateralised on a 1:1 basis by Australia's sovereign currency by way of cash in bank accounts or government-backed by cash held on trust for AUDD holders, separately from AUDC's operating funds.",
     onCoinGecko: true,
     gecko_id: "novatti-australian-digital-dollar",
     cmcId: null,
     pegType: "peggedAUD",
     pegMechanism: "fiat-backed",
     priceSource: "defillama",
-    auditLinks: null,
+    auditLinks: ["https://www.audd.digital/security-audits/", "https://www.audd.digital/transparency/"],
     twitter: "https://twitter.com/audd_digital",
     wiki: null,
     chainConfig: {
@@ -4932,6 +4932,9 @@ export default [
         },
         ripple: {
           issued: ["4155444400000000000000000000000000000000.rUN5Zxt3K1AnMRJgEWywDJT8QDMMeLH5ok"],
+        },
+        arc: {
+          issued: ["0xdeC15d98D8C16d9cA2F8Cc94bA4B88FE4f259393"],
         },
       },
     },
@@ -8710,15 +8713,21 @@ export default [
     description:
       "Parallel's Dollar stablecoin (USDp) is a USD stablecoin supported by a robust Price Stability Module. USDp is over-collateralized, decentralized, transparent, generates yield, and offers competitive pricing for on-chain USD",
     mintRedeemDescription:
-      "Users can get USDp, by swapping their assets on the Parallel app or a DEX.",
-    onCoinGecko: false,
-    gecko_id: null,
+      "Anyone can mint USDp by depositing an accepted reserve asset into the Parallelizer on Ethereum, Base, Avalanche or HyperEVM (0% mint fee today), and burn it for one reserve asset, or redeem it at any time for a proportional share of the whole reserve basket.",
+    onCoinGecko: "true",
+    gecko_id: "parallel-usdp",
     module: "parallel-usdp",
     cmcId: null,
     pegType: "peggedUSD",
     pegMechanism: "crypto-backed",
     priceSource: "defillama",
-    auditLinks: ["https://github.com/parallel-protocol/parrallel-tokens/blob/main/docs/audits/Bailsec%20-%20Parallel%20Protocol%20-%20V3%20Core%20-%20Final%20Report.pdf"],
+    auditLinks: [
+      "https://github.com/parallel-protocol/parallel-tokens/blob/main/docs/audits/v3/Bailsec%20-%20Parallel%20Protocol%20-%20V3%20Core%20-%20Final%20Report.pdf",
+      "https://github.com/parallel-protocol/parallel-tokens/blob/main/docs/audits/v3/Certora_Report_Parallel_Parallelizer_BridgeToken_final.pdf",
+      "https://github.com/parallel-protocol/parallel-tokens/blob/main/docs/audits/v3.1/Cyfrin%20-%20Parallel%20Protocol%20-%20V3.1%20-%202026-03-04.pdf",
+      "https://github.com/parallel-protocol/parallel-tokens/blob/main/docs/audits/v3.2/Bailsec%20-%20Parallel%20Protocol%20-%20Upgrade%20V3.2%20-%20Final%20Report.pdf",
+      "https://github.com/parallel-protocol/parallel-tokens/blob/main/docs/audits/v3.2/Cyfrin-Parallel%20Protocol%20-%20Upgrade-3.2%20-%20Final%20report.pdf",
+    ],
     twitter: "https://x.com/ParallelMoney",
     wiki: "https://docs.parallel.best/",
     chainConfig: {
@@ -9549,7 +9558,7 @@ export default [
     address: "0x27f6c8289550fCE67f6B50BeD1F519966aFE5287",
     symbol: "tGBP",
     url: "https://www.tokenisedgbp.com/",
-    description: "Tokenised GBP (tGBP) is the only British Pound backed stablecoin issued by a UK FCA-registered firm. tGBP is fully backed with cash and short-term UK gilts and pegged 1:1 with the British Pound",
+    description: "Tokenised GBP (tGBP) is a British Pound backed stablecoin issued by BCP Technologies Ltd, a UK firm registered with the Financial Conduct Authority as a cryptoasset firm under the Money Laundering Regulations. tGBP is fully backed with cash and short-term UK gilts and pegged 1:1 with the British Pound",
     mintRedeemDescription: "To mint Tokenised GBP (tGBP), eligible businesses need to create a tGBP Mint account and complete the required KYB and AML checks. Once the account is approved, businesses can mint and redeem tGBP with GBP from their UK bank account. Retail users can access mint and redemption services through a variety of exchange and payment partners",
     onCoinGecko: "true",
     gecko_id: "tokenised-gbp",
@@ -12167,6 +12176,9 @@ export default [
         pharos: {
           bridgedFromETH: ["0x3816102CDaff06e2a5A362CA7f767CCfD2337003"],
         },
+        arbitrum: {
+          bridgedFromETH: ["0xDbEc7b2F9435d4FCbDf9CFCab626a6Eb88b5d0D1"],
+        },
       },
     },
   },
@@ -13591,4 +13603,72 @@ export default [
       },
     },
   },
+  {
+    id: "449",
+    name: "Nova USD",
+    address: "0xeC747DAf41A4Ca4ebE72356592F8301924132907",
+    symbol: "USDN",
+    url: "https://novausd.xyz/",
+    description: "Nova USD (USDN) is a fully reserved, USD-pegged stablecoin issued by Coconut Financial Holdings Ltd, a British Virgin Islands (BVI) company. Each USDN is backed 1:1 by USD-equivalent reserves held in segregated accounts at licensed banks. The reserves are maintained in AED, which has been pegged to the US dollar since 1997, and are subject to monthly CPA attestations conducted under ISAE 3000.",
+    mintRedeemDescription: "USDN has a demand-driven supply model. Tokens are minted only when a licensed, KYB-verified distributor deposits the corresponding fiat amount and are burned when redeemed.",
+    onCoinGecko: "false",
+    gecko_id: null,
+    cmcId: null,
+    pegType: "peggedUSD",
+    pegMechanism: "fiat-backed",
+    priceSource: "defillama",
+    auditLinks: [],
+    twitter: "https://x.com/getnovausd",
+    wiki: null,
+    chainConfig: {
+      decimals: 6,
+      chains: {
+        ethereum: {
+          issued: ["0xeC747DAf41A4Ca4ebE72356592F8301924132907"],
+          unreleased: [
+            "0xB2Fb8238eAEF392837E8673ae045C5980fBd1AC1", // Mint-receiving Safe
+            "0x072B909bd90F3cac65059657Cf4D822a3212f147", // Safe sharing a signer with the mint-receiving Safe
+            "0xA36531F19de8555404FC355d0B979bd0B479CEf0", // Distribution wallet and signer of the second Safe
+          ],
+        },
+      },
+    },
+  },
+  {
+    id: "450",
+    name: "BRL1",
+    address: "polygon:0x5c067c80c00ecd2345b05e83a3e758ef799c40b5",
+    symbol: "BRL1",
+    url: "https://brl1.io/en/",
+    description:
+      "BRL1 is a stablecoin pegged 1:1 to the Brazilian Real, issued by the BRL1 consortium (Mercado Bitcoin, Foxbit, Bitso and Cainvest) and backed by reserves of Brazilian government bonds held at financial institutions, with periodic external proof-of-reserves reports.",
+    mintRedeemDescription:
+      "BRL1 is minted and burned by the consortium for qualified institutional clients, 1:1 against Brazilian Reais, through API or web integration. Other users buy and sell BRL1 on partner exchanges such as Mercado Bitcoin, Bitso, Foxbit, Kraken and OKX.",
+    onCoinGecko: "true",
+    gecko_id: "brl1",
+    cmcId: null,
+    pegType: "peggedREAL",
+    pegMechanism: "fiat-backed",
+    priceSource: "defillama",
+    auditLinks: ["https://drive.google.com/file/d/1BuRUC6u3UTzf17kOChhKby_L9hE5IU73/view"],
+    twitter: "https://x.com/BRL1Coin",
+    wiki: "https://drive.google.com/file/d/1aOuxzC0DAiRKuUDklpifvdxMsSqR06Vr/view",
+    chainConfig: {
+      chains: {
+        polygon: {
+          issued: ["0x5c067c80c00ecd2345b05e83a3e758ef799c40b5"],
+          unreleased: [
+            "0x5c067c80c00ecd2345b05e83a3e758ef799c40b5", // Tokens held by the token contract
+            "0xccfc24f563fbd798f171d16cc0706529c4739217", // Default admin
+            "0x04412afc0a6fa21b255c6ccff28e97073d7750b3", // Minter
+            "0xb190f8cf030aa7b79bb8bec8c78ccd617a842f04", // Pauser
+            "0xd81d414f7b902fe7070ed52500886b89722ccd3b", // Contract admin
+            "0x91f87ce42af3b8f20deac91f7bed63e69806f775", // Recovery operator
+            "0xf0e67fb618496fbe0a44934d370738a611bc8fd1", // Burner
+          ],
+        },
+        rls: { bridgedFromPolygon: ["0xA069d3798FEAb32994aC5D98A9F011DA6024f334"] },
+      },
+    },
+  }
 ] as PeggedAsset[];
