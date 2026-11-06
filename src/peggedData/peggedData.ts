@@ -287,6 +287,7 @@ export default [
     auditLinks: null,
     twitter: "https://twitter.com/MIM_Spell",
     wiki: "https://wiki.defillama.com/wiki/MIM",
+    deadFrom: "2026-06-24", // depegged: ~$0.99 early June 2026 -> $0.55 on 06-24, ~$0.04 since
   },
   {
     id: "11",
@@ -819,10 +820,14 @@ export default [
     auditLinks: null,
     twitter: "https://twitter.com/mstable_",
     wiki: "https://wiki.defillama.com/wiki/MUSD",
+    deprecated: true,
     chainConfig: {
       chains: {
         ethereum: {
           issued: ["0xe2f2a5c287993345a840db3b0845fbc70f5935a5"],
+          unreleased: [
+            "0x000000000000000000000000000000000000dEaD", // burned
+          ],
         },
         xdai: {
           bridgedFromETH: ["0x7300AaFC0Ef0d47Daeb850f8b6a1931b40aCab33"],
@@ -3001,7 +3006,7 @@ export default [
     symbol: "EURE",
     url: "https://monerium.com/tokens/",
     description:
-      "Monerium EUR e-money (EURE) is a digital currency issued by Monerium, an electronic money institution licensed and regulated by the Financial Supervisory Authority of Iceland. EURE is a stablecoin that is pegged to the Euro at a 1:1 ratio",
+      "Monerium EUR e-money (EURE) is a digital currency issued by Monerium, an electronic money institution authorised and supervised by the Financial Supervisory Authority of the Central Bank of Iceland. EURE is a stablecoin that is pegged to the Euro at a 1:1 ratio",
     mintRedeemDescription:
       "To mint Monerium EUR e-money (EURE), users need to first create an account with Monerium and complete the required KYC and AML checks. Once the account is approved, users can then fund their account with Euros via bank transfer",
     onCoinGecko: "true",
@@ -3549,6 +3554,38 @@ export default [
         },
         monad: {
           bridgedFromETH: ["0xfc421aD3C883Bf9E7C4f42dE845C4e4405799e73"],
+          bridge: "ccip",
+        },
+        arbitrum: {
+          bridgedFromETH: ["0x7dfF72693f6A4149b17e7C6314655f6A9F7c8B33"],
+          bridge: "ccip",
+        },
+        base: {
+          bridgedFromETH: ["0x6Bb7a212910682DCFdbd5BCBb3e28FB4E8da10Ee"],
+          bridge: "ccip",
+        },
+        avax: {
+          bridgedFromETH: ["0xfc421aD3C883Bf9E7C4f42dE845C4e4405799e73"],
+          bridge: "ccip",
+        },
+        xdai: {
+          bridgedFromETH: ["0xfc421aD3C883Bf9E7C4f42dE845C4e4405799e73"],
+          bridge: "ccip",
+        },
+        ink: {
+          bridgedFromETH: ["0xfc421aD3C883Bf9E7C4f42dE845C4e4405799e73"],
+          bridge: "ccip",
+        },
+        mantle: {
+          bridgedFromETH: ["0xfc421aD3C883Bf9E7C4f42dE845C4e4405799e73"],
+          bridge: "ccip",
+        },
+        plasma: {
+          bridgedFromETH: ["0xb77E872A68C62CfC0dFb02C067Ecc3DA23B4bbf3"],
+          bridge: "ccip",
+        },
+        xlayer: {
+          bridgedFromETH: ["0xDe6539018B095353A40753Dc54C91C68c9487D4E"],
           bridge: "ccip",
         },
       },
@@ -7494,6 +7531,14 @@ export default [
           bridgedFromETH: ["0xb3b02E4A9Fb2bD28CC2ff97B0aB3F6B3Ec1eE9D2"],
           bridge: "ccip",
         },
+        xdc: {
+          bridgedFromETH: ["0x8210c0634AB8f273806e4b7866E9Db353773c44B"],
+          bridge: "ccip",
+        },
+        base: {
+          bridgedFromETH: ["0x8210c0634AB8f273806e4b7866E9Db353773c44B"],
+          bridge: "ccip",
+        },
       },
     },
   },
@@ -7582,6 +7627,18 @@ export default [
         },
         ripple: {
           issued: ["524C555344000000000000000000000000000000.rMxCKbEDwqr76QuheSUMdEGf4B9xJ8m5De"],
+        },
+        base: {
+          issued: ["0x8d58c0c60b8d6b88fa98b291a646db34d0f98258"],
+        },
+        optimism: {
+          issued: ["0x8d58c0c60b8d6b88fa98b291a646db34d0f98258"],
+        },
+        ink: {
+          issued: ["0x8d58c0c60b8d6b88fa98b291a646db34d0f98258"],
+        },
+        unichain: {
+          issued: ["0x8d58c0c60b8d6b88fa98b291a646db34d0f98258"],
         },
       },
     },
@@ -9141,6 +9198,7 @@ export default [
             "0xd03846601b6b77965693741aAF296491Bc10A0EB", // treasury
             "0x8f58955bb4dff80f956b4683d29b62c984d4657f", // redemption / burn wallet
             "0xb4d3796a4f9b4b4181661ae0372bd8c604f34c65", // ops wallet
+            "0x75950B957009fe615c8AE02fBAac8AaA6da91B2D", // redemption sweep (pending burn)
           ],
         },
         base: {
@@ -9149,6 +9207,7 @@ export default [
             "0xd03846601b6b77965693741aAF296491Bc10A0EB", // treasury
             "0x8f58955bb4dff80f956b4683d29b62c984d4657f", // redemption / burn wallet
             "0xb4d3796a4f9b4b4181661ae0372bd8c604f34c65", // ops wallet
+            "0x75950B957009fe615c8AE02fBAac8AaA6da91B2D", // redemption sweep (pending burn)
           ],
         },
         avax: {
@@ -9157,6 +9216,7 @@ export default [
             "0xd03846601b6b77965693741aAF296491Bc10A0EB", // treasury
             "0x8f58955bb4dff80f956b4683d29b62c984d4657f", // redemption / burn wallet
             "0xb4d3796a4f9b4b4181661ae0372bd8c604f34c65", // ops wallet
+            "0x75950B957009fe615c8AE02fBAac8AaA6da91B2D", // redemption sweep (pending burn)
           ],
         },
         bsc: {
@@ -9165,6 +9225,7 @@ export default [
             "0xd03846601b6b77965693741aAF296491Bc10A0EB", // treasury
             "0x8f58955bb4dff80f956b4683d29b62c984d4657f", // redemption / burn wallet
             "0xb4d3796a4f9b4b4181661ae0372bd8c604f34c65", // ops wallet
+            "0x75950B957009fe615c8AE02fBAac8AaA6da91B2D", // redemption sweep (pending burn)
           ],
         },
         polygon: {
@@ -9173,6 +9234,7 @@ export default [
             "0xd03846601b6b77965693741aAF296491Bc10A0EB", // treasury
             "0x8f58955bb4dff80f956b4683d29b62c984d4657f", // redemption / burn wallet
             "0xb4d3796a4f9b4b4181661ae0372bd8c604f34c65", // ops wallet
+            "0x75950B957009fe615c8AE02fBAac8AaA6da91B2D", // redemption sweep (pending burn)
           ],
         },
         solana: {
@@ -9184,6 +9246,7 @@ export default [
             "0xd03846601b6b77965693741aAF296491Bc10A0EB", // treasury
             "0x8f58955bb4dff80f956b4683d29b62c984d4657f", // redemption / burn wallet
             "0xb4d3796a4f9b4b4181661ae0372bd8c604f34c65", // ops wallet
+            "0x75950B957009fe615c8AE02fBAac8AaA6da91B2D", // redemption sweep (pending burn)
           ],
         },
       },
@@ -11499,24 +11562,45 @@ export default [
       chains: {
         ethereum: {
           issued: ["0x0dc4f92879b7670e5f4e4e6e3c801d229129d90d"],
+          unreleased: [
+            "0xB6C9e6451A4B4F65249f60dE4fD12Da1088A2807", // Ripio minting wallet
+          ],
         },
         bsc: {
           issued: ["0x0dc4f92879b7670e5f4e4e6e3c801d229129d90d"],
+          unreleased: [
+            "0xB6C9e6451A4B4F65249f60dE4fD12Da1088A2807", // Ripio minting wallet
+          ],
         },
         base: {
           issued: ["0x0dc4f92879b7670e5f4e4e6e3c801d229129d90d"],
+          unreleased: [
+            "0xB6C9e6451A4B4F65249f60dE4fD12Da1088A2807", // Ripio minting wallet
+          ],
         },
         xdai: {
           issued: ["0x0dc4f92879b7670e5f4e4e6e3c801d229129d90d"],
+          unreleased: [
+            "0xB6C9e6451A4B4F65249f60dE4fD12Da1088A2807", // Ripio minting wallet
+          ],
         },
         polygon: {
           issued: ["0x0dc4f92879b7670e5f4e4e6e3c801d229129d90d"],
+          unreleased: [
+            "0xB6C9e6451A4B4F65249f60dE4fD12Da1088A2807", // Ripio minting wallet
+          ],
         },
         wc: {
           issued: ["0x0dc4f92879b7670e5f4e4e6e3c801d229129d90d"],
+          unreleased: [
+            "0xB6C9e6451A4B4F65249f60dE4fD12Da1088A2807", // Ripio minting wallet
+          ],
         },
         celo: {
           issued: ["0x0dc4f92879b7670e5f4e4e6e3c801d229129d90d"],
+          unreleased: [
+            "0xB6C9e6451A4B4F65249f60dE4fD12Da1088A2807", // Ripio minting wallet
+          ],
         },
       },
     },
@@ -11542,24 +11626,45 @@ export default [
       chains: {
         ethereum: {
           issued: ["0xD76f5Faf6888e24D9F04Bf92a0c8B921FE4390e0"],
+          unreleased: [
+            "0xB6C9e6451A4B4F65249f60dE4fD12Da1088A2807", // Ripio minting wallet
+          ],
         },
         bsc: {
           issued: ["0xD76f5Faf6888e24D9F04Bf92a0c8B921FE4390e0"],
+          unreleased: [
+            "0xB6C9e6451A4B4F65249f60dE4fD12Da1088A2807", // Ripio minting wallet
+          ],
         },
         base: {
           issued: ["0xD76f5Faf6888e24D9F04Bf92a0c8B921FE4390e0"],
+          unreleased: [
+            "0xB6C9e6451A4B4F65249f60dE4fD12Da1088A2807", // Ripio minting wallet
+          ],
         },
         xdai: {
           issued: ["0xD76f5Faf6888e24D9F04Bf92a0c8B921FE4390e0"],
+          unreleased: [
+            "0xB6C9e6451A4B4F65249f60dE4fD12Da1088A2807", // Ripio minting wallet
+          ],
         },
         polygon: {
           issued: ["0xD76f5Faf6888e24D9F04Bf92a0c8B921FE4390e0"],
+          unreleased: [
+            "0xB6C9e6451A4B4F65249f60dE4fD12Da1088A2807", // Ripio minting wallet
+          ],
         },
         wc: {
           issued: ["0xD76f5Faf6888e24D9F04Bf92a0c8B921FE4390e0"],
+          unreleased: [
+            "0xB6C9e6451A4B4F65249f60dE4fD12Da1088A2807", // Ripio minting wallet
+          ],
         },
         celo: {
           issued: ["0xD76f5Faf6888e24D9F04Bf92a0c8B921FE4390e0"],
+          unreleased: [
+            "0xB6C9e6451A4B4F65249f60dE4fD12Da1088A2807", // Ripio minting wallet
+          ],
         },
       },
     },
@@ -11585,24 +11690,45 @@ export default [
       chains: {
         ethereum: {
           issued: ["0x61D450a098b6a7f69fC4b98CE68198fe59768651"],
+          unreleased: [
+            "0xB6C9e6451A4B4F65249f60dE4fD12Da1088A2807", // Ripio minting wallet
+          ],
         },
         bsc: {
           issued: ["0x61D450a098b6a7f69fC4b98CE68198fe59768651"],
+          unreleased: [
+            "0xB6C9e6451A4B4F65249f60dE4fD12Da1088A2807", // Ripio minting wallet
+          ],
         },
         base: {
           issued: ["0x61D450a098b6a7f69fC4b98CE68198fe59768651"],
+          unreleased: [
+            "0xB6C9e6451A4B4F65249f60dE4fD12Da1088A2807", // Ripio minting wallet
+          ],
         },
         xdai: {
           issued: ["0x61D450a098b6a7f69fC4b98CE68198fe59768651"],
+          unreleased: [
+            "0xB6C9e6451A4B4F65249f60dE4fD12Da1088A2807", // Ripio minting wallet
+          ],
         },
         polygon: {
           issued: ["0x61D450a098b6a7f69fC4b98CE68198fe59768651"],
+          unreleased: [
+            "0xB6C9e6451A4B4F65249f60dE4fD12Da1088A2807", // Ripio minting wallet
+          ],
         },
         wc: {
           issued: ["0x61D450a098b6a7f69fC4b98CE68198fe59768651"],
+          unreleased: [
+            "0xB6C9e6451A4B4F65249f60dE4fD12Da1088A2807", // Ripio minting wallet
+          ],
         },
         celo: {
           issued: ["0x61D450a098b6a7f69fC4b98CE68198fe59768651"],
+          unreleased: [
+            "0xB6C9e6451A4B4F65249f60dE4fD12Da1088A2807", // Ripio minting wallet
+          ],
         },
       },
     },
@@ -11628,24 +11754,45 @@ export default [
       chains: {
         ethereum: {
           issued: ["0x8a1D45e102e886510e891d2Ec656a708991e2D76"],
+          unreleased: [
+            "0xB6C9e6451A4B4F65249f60dE4fD12Da1088A2807", // Ripio minting wallet
+          ],
         },
         bsc: {
           issued: ["0x8a1D45e102e886510e891d2Ec656a708991e2D76"],
+          unreleased: [
+            "0xB6C9e6451A4B4F65249f60dE4fD12Da1088A2807", // Ripio minting wallet
+          ],
         },
         base: {
           issued: ["0x8a1D45e102e886510e891d2Ec656a708991e2D76"],
+          unreleased: [
+            "0xB6C9e6451A4B4F65249f60dE4fD12Da1088A2807", // Ripio minting wallet
+          ],
         },
         xdai: {
           issued: ["0x8a1D45e102e886510e891d2Ec656a708991e2D76"],
+          unreleased: [
+            "0xB6C9e6451A4B4F65249f60dE4fD12Da1088A2807", // Ripio minting wallet
+          ],
         },
         polygon: {
           issued: ["0x8a1D45e102e886510e891d2Ec656a708991e2D76"],
+          unreleased: [
+            "0xB6C9e6451A4B4F65249f60dE4fD12Da1088A2807", // Ripio minting wallet
+          ],
         },
         wc: {
           issued: ["0x8a1D45e102e886510e891d2Ec656a708991e2D76"],
+          unreleased: [
+            "0xB6C9e6451A4B4F65249f60dE4fD12Da1088A2807", // Ripio minting wallet
+          ],
         },
         celo: {
           issued: ["0x8a1D45e102e886510e891d2Ec656a708991e2D76"],
+          unreleased: [
+            "0xB6C9e6451A4B4F65249f60dE4fD12Da1088A2807", // Ripio minting wallet
+          ],
         },
       },
     },
@@ -11671,24 +11818,45 @@ export default [
       chains: {
         ethereum: {
           issued: ["0x337e7456b420bd3481e7fa61fa9850343d610d34"],
+          unreleased: [
+            "0xB6C9e6451A4B4F65249f60dE4fD12Da1088A2807", // Ripio minting wallet
+          ],
         },
         bsc: {
           issued: ["0x337e7456b420bd3481e7fa61fa9850343d610d34"],
+          unreleased: [
+            "0xB6C9e6451A4B4F65249f60dE4fD12Da1088A2807", // Ripio minting wallet
+          ],
         },
         base: {
           issued: ["0x337e7456b420bd3481e7fa61fa9850343d610d34"],
+          unreleased: [
+            "0xB6C9e6451A4B4F65249f60dE4fD12Da1088A2807", // Ripio minting wallet
+          ],
         },
         xdai: {
           issued: ["0x337e7456b420bd3481e7fa61fa9850343d610d34"],
+          unreleased: [
+            "0xB6C9e6451A4B4F65249f60dE4fD12Da1088A2807", // Ripio minting wallet
+          ],
         },
         polygon: {
           issued: ["0x337e7456b420bd3481e7fa61fa9850343d610d34"],
+          unreleased: [
+            "0xB6C9e6451A4B4F65249f60dE4fD12Da1088A2807", // Ripio minting wallet
+          ],
         },
         wc: {
           issued: ["0x337e7456b420bd3481e7fa61fa9850343d610d34"],
+          unreleased: [
+            "0xB6C9e6451A4B4F65249f60dE4fD12Da1088A2807", // Ripio minting wallet
+          ],
         },
         celo: {
           issued: ["0x337e7456b420bd3481e7fa61fa9850343d610d34"],
+          unreleased: [
+            "0xB6C9e6451A4B4F65249f60dE4fD12Da1088A2807", // Ripio minting wallet
+          ],
         },
       },
     },
@@ -11714,24 +11882,45 @@ export default [
       chains: {
         ethereum: {
           issued: ["0x4F34c8b3b5FB6D98Da888F0feA543d4d9C9F2eBE"],
+          unreleased: [
+            "0xB6C9e6451A4B4F65249f60dE4fD12Da1088A2807", // Ripio minting wallet
+          ],
         },
         bsc: {
           issued: ["0x4F34c8b3b5FB6D98Da888F0feA543d4d9C9F2eBE"],
+          unreleased: [
+            "0xB6C9e6451A4B4F65249f60dE4fD12Da1088A2807", // Ripio minting wallet
+          ],
         },
         base: {
           issued: ["0x4F34c8b3b5FB6D98Da888F0feA543d4d9C9F2eBE"],
+          unreleased: [
+            "0xB6C9e6451A4B4F65249f60dE4fD12Da1088A2807", // Ripio minting wallet
+          ],
         },
         xdai: {
           issued: ["0x4F34c8b3b5FB6D98Da888F0feA543d4d9C9F2eBE"],
+          unreleased: [
+            "0xB6C9e6451A4B4F65249f60dE4fD12Da1088A2807", // Ripio minting wallet
+          ],
         },
         polygon: {
           issued: ["0x4F34c8b3b5FB6D98Da888F0feA543d4d9C9F2eBE"],
+          unreleased: [
+            "0xB6C9e6451A4B4F65249f60dE4fD12Da1088A2807", // Ripio minting wallet
+          ],
         },
         wc: {
           issued: ["0x4F34c8b3b5FB6D98Da888F0feA543d4d9C9F2eBE"],
+          unreleased: [
+            "0xB6C9e6451A4B4F65249f60dE4fD12Da1088A2807", // Ripio minting wallet
+          ],
         },
         celo: {
           issued: ["0x4F34c8b3b5FB6D98Da888F0feA543d4d9C9F2eBE"],
+          unreleased: [
+            "0xB6C9e6451A4B4F65249f60dE4fD12Da1088A2807", // Ripio minting wallet
+          ],
         },
       },
     },
@@ -12192,12 +12381,21 @@ export default [
       chains: {
         arc: {
           issued: ["0xbBe6aAB0Ed76e90AeA0d1cd978EC231c8AdCDF8b"],
+          unreleased: [
+            "0x52bB6734324F5Bf8401fF0666E8aE111F694A5A2", // premint wallet
+          ],
         },
         ethereum: {
           issued: ["0xbBe6aAB0Ed76e90AeA0d1cd978EC231c8AdCDF8b"],
+          unreleased: [
+            "0x52bB6734324F5Bf8401fF0666E8aE111F694A5A2", // premint wallet
+          ],
         },
         base: {
           issued: ["0xbBe6aAB0Ed76e90AeA0d1cd978EC231c8AdCDF8b"],
+          unreleased: [
+            "0x52bB6734324F5Bf8401fF0666E8aE111F694A5A2", // premint wallet
+          ],
         },
         solana: {
           issued: ["DYoCmA91VE8REbWNw3kM736PN7vv97qc2jr5wmUbuNtZ"],
@@ -12265,6 +12463,10 @@ export default [
         },
         arbitrum: {
           bridgedFromETH: ["0xDbEc7b2F9435d4FCbDf9CFCab626a6Eb88b5d0D1"],
+          bridge: "ccip",
+        },
+        solana: {
+          bridgedFromETH: ["94fSzNv2u6mZJHRvcR4ZcDuXrrVJTa45QYbfb2Jfnw8x"],
           bridge: "ccip",
         },
       },
@@ -12603,6 +12805,9 @@ export default [
       chains: {
         ethereum: {
           issued: ["0x3Fc98a885E99420d0ce43Bcb81bF21A4e3F45E5f"],
+          unreleased: [
+            "0x000000000000000000000000000000000000dEaD", // burned
+          ],
         },
       },
     },
@@ -13471,21 +13676,39 @@ export default [
       chains: {
         ethereum: {
           issued: ["0x5e817f2abccb9095585d26c2a3ce234a440574fc"],
+          unreleased: [
+            "0x3994d1bBb6a96671804D996915AAbE8b1569712E", // premint wallet
+          ],
         },
         avax: {
           issued: ["0x5e817f2abccb9095585d26c2a3ce234a440574fc"],
+          unreleased: [
+            "0x3994d1bBb6a96671804D996915AAbE8b1569712E", // premint wallet
+          ],
         },
         base: {
           issued: ["0x5e817f2abccb9095585d26c2a3ce234a440574fc"],
+          unreleased: [
+            "0x3994d1bBb6a96671804D996915AAbE8b1569712E", // premint wallet
+          ],
         },
         polygon: {
           issued: ["0x5e817f2abccb9095585d26c2a3ce234a440574fc"],
+          unreleased: [
+            "0x3994d1bBb6a96671804D996915AAbE8b1569712E", // premint wallet
+          ],
         },
         arbitrum: {
           issued: ["0x5e817f2abccb9095585d26c2a3ce234a440574fc"],
+          unreleased: [
+            "0x3994d1bBb6a96671804D996915AAbE8b1569712E", // premint wallet
+          ],
         },
         optimism: {
           issued: ["0x5e817f2abccb9095585d26c2a3ce234a440574fc"],
+          unreleased: [
+            "0x3994d1bBb6a96671804D996915AAbE8b1569712E", // premint wallet
+          ],
         },
         solana: {
           issued: ["FRNTPi9V3Sw9b9U8d5Q3WY7tNANT6Q394d7dYtv7Jdog"],
