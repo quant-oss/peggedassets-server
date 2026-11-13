@@ -8214,6 +8214,7 @@ export default [
           issued: [
             "4555525100000000000000000000000000000000.rDk1xiArDMjDqnrR2yWypwQAKg4mKnQYvs",
           ],
+          unreleased: ["rsTXamYqHPDaNQPKejfRavmwPevuAkPQeT"], // Quantoz treasury, funded directly by the issuer
         },
         algorand: {
           issued: ["2768422954"],
@@ -8256,6 +8257,7 @@ export default [
           issued: [
             "5553445100000000000000000000000000000000.rDk1xiArDMjDqnrR2yWypwQAKg4mKnQYvs",
           ],
+          unreleased: ["rsTXamYqHPDaNQPKejfRavmwPevuAkPQeT"], // Quantoz treasury, funded directly by the issuer
         },
         algorand: {
           issued: ["2768603795"],
@@ -10240,6 +10242,9 @@ export default [
         },
         pharos: {
           issued: ["0xa39986f96b80d04e8d7aeaaf47175f47c23fd0f4"],
+        },
+        mantle: {
+          issued: ["0x3B274e3fE48e34F032920F766f750bDeAFD80068"],
         },
       },
     },
@@ -12843,6 +12848,12 @@ export default [
         ethereum: {
           issued: ["0xf7d85ec4e7710f71992752eac2111312e73e9c9c"],
         },
+        sonic: {
+          issued: ["0xf7d85ec4e7710f71992752eac2111312e73e9c9c"],
+        },
+        bsc: {
+          issued: ["0xf7d85ec4e7710f71992752eac2111312e73e9c9c"],
+        },
       },
     },
   },
@@ -13182,6 +13193,9 @@ export default [
         },
         robinhood: {
           issued: ["0xF83D9FA66162B887dCA53D246ca7c3706C9D6E2c"], // ccip burn and mint
+        },
+        mantle: {
+          issued: ["0x133229E0AdFf22c6F1AD287D199ea09d35E4427B"],
         },
       },
     },
