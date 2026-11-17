@@ -981,7 +981,13 @@ const adapter: PeggedIssuanceAdapter = {
     ethereum: bridgedSupply("zkfair", 18, chainContracts.zkfair.bridgedFromETH),
   },
   wemix: {
-    ethereum: bridgedSupply("wemix", 6, chainContracts.wemix.bridgedFromETH),
+    ethereum: sumMultipleBalanceFunctions(
+      [
+        bridgedSupply("wemix", 6, [chainContracts.wemix.bridgedFromETH[0]]),
+        bridgedSupply("wemix", 6, [chainContracts.wemix.bridgedFromETH[1]], "ccip", "ethereum"),
+      ],
+      "peggedUSD"
+    ),
   },
 /*   kroma: {
     ethereum: bridgedSupply("kroma", 6, chainContracts.kroma.bridgedFromETH),
@@ -1091,6 +1097,21 @@ const adapter: PeggedIssuanceAdapter = {
   },
   arc: {
     minted: chainMinted("arc", 6),
+  },
+  adi: {
+    ethereum: bridgedSupply("adi", 6, chainContracts.adi.bridgedFromETH, "ccip", "ethereum"),
+  },
+  plasma: {
+    minted: chainMinted("plasma", 6),
+  },
+  "0g": {
+    ethereum: sumMultipleBalanceFunctions(
+      [
+        bridgedSupply("0g", 6, [chainContracts["0g"].bridgedFromETH[0]], "ccip", "ethereum"),
+        bridgedSupply("0g", 6, [chainContracts["0g"].bridgedFromETH[1]], "layerzero", "ethereum"),
+      ],
+      "peggedUSD"
+    ),
   },
 };
 

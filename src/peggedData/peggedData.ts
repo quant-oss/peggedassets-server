@@ -65,7 +65,7 @@ export default [
     bridgeConfig: {
       lzConfig: {
         symbols: ["USDC", 'USDC.e'],
-        excludeChains: ["aurora"], // Aurora USDC is Near-native USDC bridged over; tracked as bridgedFromNear in usd-coin/config.ts
+        excludeChains: ["aurora", "0g"], // Aurora USDC is Near-native USDC bridged over; tracked as bridgedFromNear in usd-coin/config.ts. 0g: CCIP USDC.e + Stargate OFT tracked by hand in usd-coin/config.ts
       },
       hyperlaneConfig: {
         // Default matching by gecko_id "usd-coin" and symbol "USDC".
@@ -7380,6 +7380,10 @@ export default [
           bridgedFromETH: ["0x8210c0634AB8f273806e4b7866E9Db353773c44B"],
           bridge: "ccip",
         },
+        xrplevm: {
+          bridgedFromETH: ["0x5E54c1bbc5F19C7A39CC6ff7dbdFBdF438a3CD60"],
+          bridge: "axelar",
+        },
       },
     },
   },
@@ -7836,7 +7840,8 @@ export default [
     chainConfig: {
       chains: {
         abcore: {
-          issued: ["0x111111d2bf19e43c34263401e0cad979ed1cdb61"],
+          bridgedFromETH: ["0x111111d2bf19e43c34263401e0cad979ed1cdb61"],
+          bridge: "ccip",
         },
         bsc: {
           issued: ["0x8d0D000Ee44948FC98c9B98A4FA4921476f08B0d"],
@@ -7854,10 +7859,17 @@ export default [
           issued: ["0x05fabd1b12e39967a3c24e91b7b8f67719a6dacee74f3c8b9fb7d93e855437d2"],
         },
         plume_mainnet: {
-          issued: ["0x111111d2bf19e43C34263401e0CAd979eD1cdb61"],
+          bridgedFromETH: ["0x111111d2bf19e43C34263401e0CAd979eD1cdb61"],
+          bridge: "ccip",
         },
         monad: {
-          issued: ["0x111111d2bf19e43C34263401e0CAd979eD1cdb61"],
+          bridgedFromETH: ["0x111111d2bf19e43C34263401e0CAd979eD1cdb61"],
+          bridge: "ccip",
+          decimals: 6, // Monad USD1 has 6 decimals, the rest of USD1 uses 18
+        },
+        mantle: {
+          bridgedFromETH: ["0x111111d2bf19e43C34263401e0CAd979eD1cdb61"],
+          bridge: "ccip",
         },
       },
     },
@@ -8208,7 +8220,8 @@ export default [
           issued: ["0x8df723295214ea6f21026eeeb4382d475f146f9f"],
         },
         polygon: {
-          issued: ["0xd571edb2ef29df10fcd6200fd6d0ed2389983db3"],
+          bridgedFromETH: ["0xd571edb2ef29df10fcd6200fd6d0ed2389983db3"],
+          bridge: "layerzero",
         },
         ripple: {
           issued: [
@@ -10645,6 +10658,10 @@ export default [
         },
         monad: {
           bridgedFromETH: ["0x3D78455E22D5dd49709eC135A59CB1c5a87AC3C6"],
+          bridge: "ccip",
+        },
+        solana: {
+          bridgedFromETH: ["HAYQtfJEQ9DbDbaHEhxfGsWbSZ3ywthdsVB3PuB72DYe"],
           bridge: "ccip",
         },
       },
